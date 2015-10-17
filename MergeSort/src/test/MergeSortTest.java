@@ -20,7 +20,7 @@ public class MergeSortTest {
 		int oneElementArray[] = new int[1];
 		oneElementArray[0] = 1;
 		
-		assertEquals(mergeSort.sort(oneElementArray), oneElementArray);
+		assertEquals(oneElementArray, mergeSort.sort(oneElementArray));
 	}
 
 }
