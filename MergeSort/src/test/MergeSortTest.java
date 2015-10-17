@@ -20,7 +20,17 @@ public class MergeSortTest {
 		int oneElementArray[] = new int[1];
 		oneElementArray[0] = 1;
 		
-		assertEquals(oneElementArray, mergeSort.sort(oneElementArray));
+		assertArrayEquals(oneElementArray, mergeSort.sort(oneElementArray));
+	}
+	
+	@Test
+	public void shouldCorrectlySortAnArrayWithTwoElements() {
+		MergeSort mergeSort = new MergeSort();
+		
+		int toBeSortedArray[] = {2, 1};
+		int sortedArray[] = {1, 2};
+
+		assertArrayEquals(sortedArray, mergeSort.sort(toBeSortedArray));
 	}
 
 }
