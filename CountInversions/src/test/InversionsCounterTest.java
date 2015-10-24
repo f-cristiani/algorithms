@@ -37,6 +37,15 @@ public class InversionsCounterTest {
 		assertEquals(expectedNumberOfInversions, inversionsCounter.count(arrayDescendingOrder));
 	}
 
+	@Test
+	public void shouldCorrectlyCountTheInversions() {
+		InversionsCounter inversionsCounter = new InversionsCounter();
+
+		int[] testArray = {1, 5, 3, 4, 2, 6};
+
+		assertEquals(5, inversionsCounter.count(testArray));
+	}
+
 	private int[] getArrayDescendingOrder(int size) {
 		int[] arrayDescendingOrder = new int[size];
 
