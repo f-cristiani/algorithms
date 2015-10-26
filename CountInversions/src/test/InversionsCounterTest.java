@@ -25,6 +25,15 @@ public class InversionsCounterTest {
 
 		assertEquals(1, inversionsCounter.count(twoElementArrayDescendingOrder));
 	}
+	
+	@Test
+	public void shouldReturn0WithATwoElementArraySortedInAscendingOrder() {
+		InversionsCounter inversionsCounter = new InversionsCounter();
+
+		int twoElementArrayDescendingOrder[] = {1, 2};
+
+		assertEquals(0, inversionsCounter.count(twoElementArrayDescendingOrder));
+	}
 
 	@Test
 	public void shouldReturnTheMaxNumberOfInversionsWithAnArraySortedInDescendingOrder() {
@@ -32,7 +41,7 @@ public class InversionsCounterTest {
 
 		int[] arrayDescendingOrder = getArrayDescendingOrder(100000);
 
-		int expectedNumberOfInversions = (arrayDescendingOrder.length * (arrayDescendingOrder.length - 1))/2;
+		long expectedNumberOfInversions = 4999950000L;
 
 		assertEquals(expectedNumberOfInversions, inversionsCounter.count(arrayDescendingOrder));
 	}
@@ -41,9 +50,18 @@ public class InversionsCounterTest {
 	public void shouldCorrectlyCountTheInversions() {
 		InversionsCounter inversionsCounter = new InversionsCounter();
 
-		int[] testArray = {1, 5, 3, 4, 2, 6};
-
-		assertEquals(5, inversionsCounter.count(testArray));
+		int[] testArray = {
+			79862,
+			37223,
+			46982,
+			64399,
+			16774,
+			74018,
+			71187,
+			91901
+		};
+		
+		assertEquals(10, inversionsCounter.count(testArray));
 	}
 
 	private int[] getArrayDescendingOrder(int size) {
