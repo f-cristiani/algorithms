@@ -4,11 +4,11 @@ import java.util.Arrays;
 
 public class InversionsCounter {
 
-	public int count(int[] input) {
+	public long count(int[] input) {
 		return doCount(input);
 	}
 
-	private int doCount(int[] input) {
+	private long doCount(int[] input) {
 		int inputLength = input.length;
 
 		if (inputLength == 1) {
@@ -18,14 +18,14 @@ public class InversionsCounter {
 		int firstHalf[] = Arrays.copyOfRange(input, 0, inputLength/2);
 		int secondHalf[] = Arrays.copyOfRange(input, (inputLength/2), inputLength);
 
-		int firstHalfInversions = doCount(firstHalf);
-		int secondHalfInversions = doCount(secondHalf);
-		int splittedInversions = countSplittedInversions(input);
+		long firstHalfInversions = doCount(firstHalf);
+		long secondHalfInversions = doCount(secondHalf);
+		long splittedInversions = countSplittedInversions(input);
 
 		return firstHalfInversions + secondHalfInversions + splittedInversions;
 	}
 
-	private int countSplittedInversions(int[] input) {
+	private long countSplittedInversions(int[] input) {
 		return sortAndCountSplittedInversions(input).numberOfInversions;
 	}
 
@@ -49,7 +49,7 @@ public class InversionsCounter {
 		int lengthSortedMergedArray = sortedFirstArray.length + sortedSecondArray.length;
 		int[] sortedMergedArray = new int[lengthSortedMergedArray];
 
-		int numberOfInversions = 0;
+		long numberOfInversions = 0;
 
 		int firstArrayIndex = 0;
 		int secondArrayIndex = 0;
@@ -85,9 +85,9 @@ public class InversionsCounter {
 
 	public class SortedArrayAndNumberOfInversions {
 		private int[] sortedArray;
-		private int numberOfInversions;
+		private long numberOfInversions;
 
-		public SortedArrayAndNumberOfInversions(int[] sortedArray, int numberOfInversions) {
+		public SortedArrayAndNumberOfInversions(int[] sortedArray, long numberOfInversions) {
 			this.sortedArray = sortedArray;
 			this.numberOfInversions = numberOfInversions;
 		}
