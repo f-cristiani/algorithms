@@ -2,7 +2,7 @@ package main;
 
 import java.util.Arrays;
 
-public class MergeSort {
+public class MergeSort implements Sort {
 
 	public int[] sort(int[] toBeSortedArray) {
 		return doSort(toBeSortedArray);

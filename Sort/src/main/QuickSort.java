@@ -2,7 +2,7 @@ package main;
 
 import java.util.Arrays;
 
-public class QuickSort {
+public class QuickSort implements Sort {
 	private int comparisons = 0;
 
 	public int[] sort(int[] input) {
@@ -104,7 +104,6 @@ public class QuickSort {
 		}
 		
 		return middleIndex;
-		
 	}
 	
 }
