@@ -34,6 +34,31 @@ public class SelectorTest {
 		}
 	}
 	
+	@Test
+	public void whenTheInputArrayIsInDescendingOrderTheOrderStatisticAndThePositionOfTheArrayShouldBeMirrored() {
+		Selector selector = new Selector();
+
+		int input[] = getArrayDescendingOrder(1000);
+		
+		int orderStatistic = 0;
+		for (int i = 0; i < input.length; i++) {
+			orderStatistic = i + 1;
+			assertEquals(input[input.length - 1 - i], selector.selectOrderStatistic(input, orderStatistic));
+		}
+	}
+
+	private int[] getArrayDescendingOrder(int size) {
+		int[] arrayDescendingOrder = new int[size];
+
+		int j = 0;
+		for(int i = arrayDescendingOrder.length; i > 0 ; i--) {
+			arrayDescendingOrder[j] = i;
+			j++;
+		}
+
+		return arrayDescendingOrder;
+	}
+	
 	private int[] getArrayAscendingOrder(int size) {
 		int[] arrayAscendingOrder = new int[size];
 
