@@ -6,7 +6,8 @@ import java.util.Random;
 public class Selector {
 
 	public int selectOrderStatistic(int[] input, int orderStatistic) {
-		return doSelection(input,orderStatistic);
+		int[] clonedInput = input.clone();
+		return doSelection(clonedInput,orderStatistic);
 	}
 
 	private int doSelection(int[] input, int orderStatistic) {
