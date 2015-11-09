@@ -17,6 +17,14 @@ public class VerticeTest {
 	}
 	
 	@Test
+	public void whenIdIsSettedItShouldBeReturned() {
+		Vertice v = new Vertice();
+		v.setId(123);
+		
+		assertEquals(123, v.getId());
+	}
+	
+	@Test
 	public void whenAnEdgeIsAddedItShouldBeReturnedWithGetEdges() {
 		Vertice v = new Vertice();
 		Edge e1 = new Edge(v, new Vertice());
