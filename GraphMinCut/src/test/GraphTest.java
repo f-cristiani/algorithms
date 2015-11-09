@@ -37,6 +37,24 @@ public class GraphTest {
 	}
 	
 	@Test
+	public void whenAVerticeAlreadyExistsItIsNotAddedToTheGraph() {
+		Graph graph = new Graph();
+		
+		Vertice tail1 = new Vertice();
+		Vertice head1 = new Vertice();
+		
+		Vertice head2 = new Vertice();
+		
+		Edge e1 = new Edge(tail1, head1);
+		Edge e2 = new Edge(tail1, head2);
+		
+		graph.addEdge(e1);
+		graph.addEdge(e2);
+		
+		assertEquals(3, graph.getVertices().size());
+	}	
+	
+	@Test
 	public void whenAnEdgeIsAddedToTheGraphTheEdgeItselfIsAddedToTheTailAndHead() {
 		Graph graph = new Graph();
 		
@@ -50,5 +68,29 @@ public class GraphTest {
 		for (Vertice v : graph.getVertices()) {
 			assertTrue(v.getEdges().contains(e));
 		}
+	}
+	
+	@Test
+	public void shouldPrintItselfCorrectly() {
+		Graph graph = new Graph();
+		
+		Vertice tail1 = new Vertice();
+		tail1.setId(1);
+		Vertice head1 = new Vertice();
+		head1.setId(2);
+		
+		Vertice head2 = new Vertice();
+		head2.setId(3);
+		
+		Edge e1 = new Edge(tail1, head1);
+		e1.setId(1);
+		Edge e2 = new Edge(tail1, head2);
+		e2.setId(2);
+
+		graph.addEdge(e1);
+		graph.addEdge(e2);
+		
+		String expectedPrintedGraph = "1\t2\t3\t\n2\t1\t\n3\t1\t\n";
+		assertEquals(expectedPrintedGraph, graph.print());
 	}
 }

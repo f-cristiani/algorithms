@@ -10,13 +10,17 @@ public class Graph {
 		this.edges.add(edge);
 		
 		Vertice tail = edge.getTail();
-		tail.addEdge(edge);
+		if (!this.vertices.contains(tail)) {
+			this.vertices.add(tail);
+		}
 		
-		Vertice head = edge.getTail();
+		Vertice head = edge.getHead();
+		if (!this.vertices.contains(head)) {
+			this.vertices.add(head);
+		}
+		
+		tail.addEdge(edge);
 		head.addEdge(edge);
-
-		this.vertices.add(tail);
-		this.vertices.add(head);
 	}
 	
 	public void addVertice(Vertice vertice) {
@@ -25,6 +29,28 @@ public class Graph {
 
 	public ArrayList<Vertice> getVertices() {
 		return this.vertices;
+	}
+
+	public String print() {
+		String printedGraph = "";
+
+		for (Vertice vertice : this.getVertices()) {
+			printedGraph += vertice.getId() + "\t";
+			
+			for (Edge edge : vertice.getEdges()) {
+				if (!edge.getTail().equals(vertice)) {
+					printedGraph += edge.getTail().getId() + "\t";
+				}
+				
+				if (!edge.getHead().equals(vertice)) {
+					printedGraph += edge.getHead().getId() + "\t";
+				}
+			}
+			
+			printedGraph += "\n";
+		}
+		
+		return printedGraph;
 	}
 
 }
