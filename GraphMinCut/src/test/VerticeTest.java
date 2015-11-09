@@ -19,8 +19,8 @@ public class VerticeTest {
 	@Test
 	public void whenAnEdgeIsAddedItShouldBeReturnedWithGetEdges() {
 		Vertice v = new Vertice();
-		Edge e1 = new Edge();
-		Edge e2 = new Edge();
+		Edge e1 = new Edge(v, new Vertice());
+		Edge e2 = new Edge(new Vertice(), v);
 		
 		v.addEdge(e1);
 		v.addEdge(e2);
