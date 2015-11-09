@@ -11,12 +11,12 @@ public class EdgeTest {
 
 	@Test
 	public void shouldBeConstructedWithTailAndHead() {
-		new Edge(new Vertice(), new Vertice());
+		new Edge(new Vertice(1), new Vertice(2));
 	}
 	
 	@Test
 	public void whenIdIsSettedItShouldBeReturned() {
-		Edge e = new Edge(new Vertice(), new Vertice());
+		Edge e = new Edge(new Vertice(1), new Vertice(2));
 		e.setId(123);
 		
 		assertEquals(123, e.getId());

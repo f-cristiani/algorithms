@@ -12,23 +12,22 @@ import main.Vertice;
 public class VerticeTest {
 
 	@Test
-	public void shouldThrowNoExceptionWhenConstructedWithoutArguments() {
-		new Vertice();
+	public void shouldBeConstructedWithAnId() {
+		new Vertice(123);
 	}
 	
 	@Test
 	public void whenIdIsSettedItShouldBeReturned() {
-		Vertice v = new Vertice();
-		v.setId(123);
+		Vertice v = new Vertice(123);
 		
 		assertEquals(123, v.getId());
 	}
 	
 	@Test
 	public void whenAnEdgeIsAddedItShouldBeReturnedWithGetEdges() {
-		Vertice v = new Vertice();
-		Edge e1 = new Edge(v, new Vertice());
-		Edge e2 = new Edge(new Vertice(), v);
+		Vertice v = new Vertice(1);
+		Edge e1 = new Edge(v, new Vertice(2));
+		Edge e2 = new Edge(new Vertice(3), v);
 		
 		v.addEdge(e1);
 		v.addEdge(e2);

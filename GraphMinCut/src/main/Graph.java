@@ -10,7 +10,7 @@ public class Graph {
 		this.edges.add(edge);
 		
 		Vertice tail = edge.getTail();
-		if (!this.vertices.contains(tail)) {
+		if (!this.containsVertice(tail)) {
 			this.vertices.add(tail);
 		}
 		
@@ -21,6 +21,18 @@ public class Graph {
 		
 		tail.addEdge(edge);
 		head.addEdge(edge);
+	}
+	
+	private boolean containsVertice(Vertice v) {
+		boolean containsVertice = false;
+		for (Vertice vertice : this.vertices) {
+			if (vertice.getId() == v.getId()) {
+				containsVertice = true;
+				break;
+			}
+		}
+		
+		return containsVertice;
 	}
 	
 	public void addVertice(Vertice vertice) {

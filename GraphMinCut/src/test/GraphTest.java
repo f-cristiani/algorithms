@@ -2,8 +2,6 @@ package test;
 
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
-
 import org.junit.Test;
 
 import main.Edge;
@@ -21,11 +19,11 @@ public class GraphTest {
 	public void whenAnEdgeIsAddedItsTailAndHeadVerticesAreAlsoAddedToTheGraph() {
 		Graph graph = new Graph();
 		
-		Vertice tail1 = new Vertice();
-		Vertice head1 = new Vertice();
+		Vertice tail1 = new Vertice(1);
+		Vertice head1 = new Vertice(2);
 		
-		Vertice tail2 = new Vertice();
-		Vertice head2 = new Vertice();
+		Vertice tail2 = new Vertice(3);
+		Vertice head2 = new Vertice(4);
 		
 		Edge e1 = new Edge(tail1, head1);
 		Edge e2 = new Edge(tail2, head2);
@@ -40,10 +38,10 @@ public class GraphTest {
 	public void whenAVerticeAlreadyExistsItIsNotAddedToTheGraph() {
 		Graph graph = new Graph();
 		
-		Vertice tail1 = new Vertice();
-		Vertice head1 = new Vertice();
+		Vertice tail1 = new Vertice(1);
+		Vertice head1 = new Vertice(2);
 		
-		Vertice head2 = new Vertice();
+		Vertice head2 = new Vertice(3);
 		
 		Edge e1 = new Edge(tail1, head1);
 		Edge e2 = new Edge(tail1, head2);
@@ -58,8 +56,8 @@ public class GraphTest {
 	public void whenAnEdgeIsAddedToTheGraphTheEdgeItselfIsAddedToTheTailAndHead() {
 		Graph graph = new Graph();
 		
-		Vertice tail = new Vertice();
-		Vertice head = new Vertice();
+		Vertice tail = new Vertice(1);
+		Vertice head = new Vertice(2);
 		
 		Edge e = new Edge(tail, head);
 		
@@ -74,13 +72,10 @@ public class GraphTest {
 	public void shouldPrintItselfCorrectly() {
 		Graph graph = new Graph();
 		
-		Vertice tail1 = new Vertice();
-		tail1.setId(1);
-		Vertice head1 = new Vertice();
-		head1.setId(2);
+		Vertice tail1 = new Vertice(1);
+		Vertice head1 = new Vertice(2);
 		
-		Vertice head2 = new Vertice();
-		head2.setId(3);
+		Vertice head2 = new Vertice(3);
 		
 		Edge e1 = new Edge(tail1, head1);
 		e1.setId(1);
