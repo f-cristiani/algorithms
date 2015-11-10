@@ -55,6 +55,10 @@ public class Graph {
 				if (!edge.getHead().equals(vertice)) {
 					printedGraph += edge.getHead().getId() + "\t";
 				}
+				
+				if (edge.getHead().equals(vertice) && edge.getTail().equals(vertice)) {
+					printedGraph += vertice.getId() + "\t";
+				}
 			}
 			
 			printedGraph += "\n";

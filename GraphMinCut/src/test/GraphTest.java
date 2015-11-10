@@ -81,11 +81,14 @@ public class GraphTest {
 		e1.setId(1);
 		Edge e2 = new Edge(tail1, head2);
 		e2.setId(2);
-
+		Edge e3 = new Edge(tail1, tail1);
+		e2.setId(3);
+		
 		graph.addEdge(e1);
 		graph.addEdge(e2);
+		graph.addEdge(e3);
 		
-		String expectedPrintedGraph = "1\t2\t3\t\n2\t1\t\n3\t1\t\n";
+		String expectedPrintedGraph = "1\t2\t3\t1\t\n2\t1\t\n3\t1\t\n";
 		assertEquals(expectedPrintedGraph, graph.print());
 	}
 }
