@@ -33,4 +33,8 @@ public class Edge {
 	public Vertice getHead() {
 		return this.head;
 	}
+
+	public boolean isSelfLoop() {
+		return this.getTail().equals(this.getHead());
+	}
 }
