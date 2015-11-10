@@ -7,6 +7,12 @@ public class Graph {
 	private ArrayList<Vertice> vertices = new ArrayList<Vertice>();
 	
 	public void addEdge(Edge edge) {
+		for (Edge e : this.edges) {
+			if (e.getTail().equals(edge.getHead()) && e.getHead().equals(edge.getTail())) {
+				return;
+			}
+		}
+		
 		this.edges.add(edge);
 		
 		Vertice tail = edge.getTail();
@@ -29,6 +35,10 @@ public class Graph {
 
 	public ArrayList<Vertice> getVertices() {
 		return this.vertices;
+	}
+	
+	public ArrayList<Edge> getEdges() {
+		return this.edges;
 	}
 
 	public String print() {
