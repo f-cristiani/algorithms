@@ -18,6 +18,14 @@ public class Edge {
 		return this.id;
 	}
 	
+	public void setTail(Vertice tail) {
+		this.tail = tail;
+	}
+	
+	public void setHead(Vertice head) {
+		this.head = head;
+	}
+	
 	public Vertice getTail() {
 		return this.tail;
 	}
