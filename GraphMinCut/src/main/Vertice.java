@@ -11,7 +11,9 @@ public class Vertice {
 	}
 
 	public void addEdge(Edge e) {
-		edges.add(e);
+		if (!this.getEdges().contains(e)) {
+			this.getEdges().add(e);
+		}
 	}
 
 	public ArrayList<Edge> getEdges() {

@@ -38,5 +38,17 @@ public class VerticeTest {
 		
 		assertEquals(expectedEdges, v.getEdges());
 	}
+	
+	@Test
+	public void whenTheSameEdgeIsAddedMoreThanOnceItShouldBeAddedOnlyTheFirstTime() {
+		Vertice v = new Vertice(1);
+		Edge e = new Edge(v, new Vertice(1));
+		
+		v.addEdge(e);
+		v.addEdge(e);
+		v.addEdge(e);
+		
+		assertEquals(1, v.getEdges().size());
+	}
 
 }
