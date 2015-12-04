@@ -35,7 +35,7 @@ public class ShortestPathRunnerTest {
 	public void testItShouldReturnTwoDistancesWithATwoVerticesGraph() {
 		Graph graph = new Graph();
 		Vertex v1 = new Vertex(1);
-		Vertex v2 = new Vertex(1);
+		Vertex v2 = new Vertex(2);
 		
 		int pathLength = 3;
 		
@@ -52,5 +52,42 @@ public class ShortestPathRunnerTest {
 		assertEquals(2, distances.size());
 		assertEquals(expectedDistances.get(v1), distances.get(v1));
 		assertEquals(expectedDistances.get(v2), distances.get(v2));
+	}
+	
+	@Test
+	public void testItShouldReturnTheCorrectDistancesWithFourVerticesGraph() {
+		Graph graph = new Graph();
+		Vertex v1 = new Vertex(1);
+		Vertex v2 = new Vertex(2);
+		Vertex v3 = new Vertex(3);
+		Vertex v4 = new Vertex(4);
+		
+		Edge e12 = new Edge(v1, v2, 1);
+		Edge e13 = new Edge(v1, v3, 4);
+		Edge e24 = new Edge(v2, v4, 6);
+		Edge e23 = new Edge(v2, v3, 2);
+		Edge e34 = new Edge(v3, v4, 3);
+		
+		graph.addEdge(e12);
+		graph.addEdge(e13);
+		graph.addEdge(e24);
+		graph.addEdge(e23);
+		graph.addEdge(e34);
+		
+		ShortestPathRunner shortestPathRunner = new ShortestPathRunner();
+		
+		Hashtable<Vertex, Integer> expectedDistances = new Hashtable<Vertex, Integer>();
+		expectedDistances.put(v1,  0);
+		expectedDistances.put(v2,  1);
+		expectedDistances.put(v3,  3);
+		expectedDistances.put(v4,  6);
+		
+		Hashtable<Vertex, Integer> distances = shortestPathRunner.run(graph, v1);
+		
+		assertEquals(expectedDistances.size(), distances.size());
+		assertEquals(expectedDistances.get(v1), distances.get(v1));
+		assertEquals(expectedDistances.get(v2), distances.get(v2));
+		assertEquals(expectedDistances.get(v3), distances.get(v3));
+		assertEquals(expectedDistances.get(v4), distances.get(v4));
 	}
 }

@@ -17,7 +17,7 @@ public class ShortestPathRunner {
 			Vertex vertexThatMinimizesMinimumScore = null;
 			
 			for (Edge edge : graph.getEdges()) {
-				if (graph.getVertices().contains(edge.getTail()) && !verticesProcessedSoFar.contains(edge.getHead())) {
+				if (verticesProcessedSoFar.contains(edge.getTail()) && !verticesProcessedSoFar.contains(edge.getHead())) {
 					int tempMinimumScore = distances.get(edge.getTail()) + edge.getLength(); 
 					if (tempMinimumScore < minimumScore) {
 						vertexThatMinimizesMinimumScore = edge.getHead();
