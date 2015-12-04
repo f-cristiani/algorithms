@@ -2,11 +2,11 @@ package main;
 
 import java.util.ArrayList;
 
-public class Vertice {
+public class Vertex {
 	private ArrayList<Edge> edges = new ArrayList<Edge>();
 	private int id;
 
-	public Vertice(int id) {
+	public Vertex(int id) {
 		this.id = id;
 	}
 

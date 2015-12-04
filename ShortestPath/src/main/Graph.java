@@ -4,17 +4,17 @@ import java.util.ArrayList;
 
 public class Graph {
 	private ArrayList<Edge> edges = new ArrayList<Edge>();
-	private ArrayList<Vertice> vertices = new ArrayList<Vertice>();
+	private ArrayList<Vertex> vertices = new ArrayList<Vertex>();
 	
 	public void addEdge(Edge edge) {
 		this.edges.add(edge);
 		
-		Vertice tail = edge.getTail();
+		Vertex tail = edge.getTail();
 		if (!this.vertices.contains(tail)) {
 			this.vertices.add(tail);
 		}
 		
-		Vertice head = edge.getHead();
+		Vertex head = edge.getHead();
 		if (!this.vertices.contains(head)) {
 			this.vertices.add(head);
 		}
@@ -23,11 +23,11 @@ public class Graph {
 		head.addEdge(edge);
 	}
 	
-	public void addVertice(Vertice vertice) {
+	public void addVertice(Vertex vertice) {
 		this.vertices.add(vertice);
 	}
 
-	public ArrayList<Vertice> getVertices() {
+	public ArrayList<Vertex> getVertices() {
 		return this.vertices;
 	}
 	
@@ -38,7 +38,7 @@ public class Graph {
 	public String print() {
 		String printedGraph = "";
 
-		for (Vertice vertice : this.getVertices()) {
+		for (Vertex vertice : this.getVertices()) {
 			printedGraph += vertice.getId() + "\t";
 			
 			for (Edge edge : vertice.getEdges()) {
